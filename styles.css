@@ -49,7 +49,9 @@ p{color:var(--texto)}
 .button-creme{border-color:var(--creme);background:var(--creme);color:var(--petroleo)}
 
 /* Cabeçalho */
-.site-header{position:sticky;top:12px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:20px;width:calc(100% - 56px);max-width:1264px;margin:16px auto 0;padding:10px 14px 10px 24px;border:1px solid var(--linha);border-radius:100px;background:rgba(255,255,255,.96);box-shadow:0 10px 30px rgba(11,79,113,.07)}
+.site-header{position:sticky;top:12px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:20px;width:calc(100% - 56px);max-width:1264px;margin:16px auto 0;padding:10px 14px 10px 24px;border:1px solid var(--linha);border-radius:100px;background:var(--branco);box-shadow:0 10px 30px rgba(11,79,113,.07)}
+/* Faixa atrás do menu fixo: o conteúdo some antes de passar por cima dele ao rolar */
+body::before{content:"";position:fixed;inset:0 0 auto;z-index:19;height:68px;background:linear-gradient(var(--branco) 72%,rgba(255,255,255,0));pointer-events:none}
 .brand{display:flex;align-items:center;min-height:48px}
 .navigation{display:flex;gap:26px;font-size:.9375rem;font-weight:600}
 .navigation a{padding:10px 0;text-decoration:none;border-bottom:2px solid transparent}
@@ -217,6 +219,7 @@ noscript .panel{display:block;padding:30px}
   .navigation a{padding:15px 4px;font-size:1.125rem}
   html:not(.js) .navigation{display:flex;position:static;flex-direction:row;flex-wrap:wrap;gap:14px;box-shadow:none}
   html:not(.js) .site-header{position:static;flex-wrap:wrap}
+  html:not(.js) body::before{display:none}
   html:not(.js) .menu-toggle{display:none}
 }
 @media(max-width:960px){
@@ -233,6 +236,7 @@ noscript .panel{display:block;padding:30px}
 @media(max-width:640px){
   html{scroll-padding-top:96px}
   body{padding-bottom:84px}
+  body::before{display:none}
   .wrap{width:calc(100% - 32px)}
   .site-header{top:0;width:100%;margin-top:0;padding:8px 12px 8px 16px;gap:8px;border-width:0 0 1px;border-radius:0 0 22px 22px;background:var(--branco)}
   .brand img{width:128px}
